@@ -96,11 +96,11 @@ def main():
     for i in range(F):
         tmp.append(xDat[:,i])
 
-    print "what?"
+    #print "what?"
     #import pdb; pdb.set_trace()
     #squares = leastSquares(yData,tmp)
-    print squares
-    print "that was squares"
+    #print squares
+    #print "that was squares"
     #now I have the columns
     x = scipy.array(tmp)
     #print "in row format: "
