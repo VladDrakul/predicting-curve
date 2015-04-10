@@ -21,17 +21,16 @@ def fitFuncL(t, l):
 def fitFunc2(t, *args):
     leng = len(args)
     total = args[0]
-    for i in range(1,leng-1):
+    for i in range(1,leng):
         total += t[i-1] * args[i]
 
     return total
         
 def fitFunc3(t, args):
     leng = len(args)
-    total = args[-1]
-    leng = leng-1
-    for argh in args[:-1]:
-        total += t[leng-1] * argh
+    total = args[0]
+    for i in range(1,leng):
+        total += t[i-1] * args[i]
 
     return total
         
@@ -157,7 +156,7 @@ def main():
         #print fitFuncL(xVals, squares)
         #print testFunc(xVals, fitParams[0], fitParams[1], fitParams[2])
         import pdb; pdb.set_trace()
-        print fitFunc2(xVals, fitPars)
+        print fitFunc3(xVals, fitPars)
 
 
 
