@@ -5,6 +5,8 @@ from scipy.optimize import curve_fit
 import scipy
 
 #this is how the data should fit. t is the x (independent) variables, and a, b, and c are the coefficients
+"""
+DEPRECIATED STUFF USED FOR TESTING
 def fitFunc(t, a, b, c):
     return a + b*t[0] + c*t[1]
 
@@ -16,6 +18,7 @@ def fitFuncL(t, l):
         y += x*m
 
     return y
+"""
 
 #same fitfunction but with variable amount of parameters. On second thought, this is just like a list except not really
 def fitFunc2(t, *args):
@@ -33,7 +36,8 @@ def fitFunc3(t, args):
         total += t[i-1] * args[i]
 
     return total
-        
+"""        
+DEPRECIATED STUFF USED FOR TESTING
 def leastSquares(yVals, xVals):
     #yVals is all the yVals we know
     #xVals is a list of lists of the x-vals for each independent variable. "by column"
@@ -67,7 +71,7 @@ def leastSquares(yVals, xVals):
         #diffSum = reduce(lambda a,b: a+b, map(lambda a: a-xAvg,xVal)
     #for xAvg,xVal,yVal in xAvgs,xVals,yVals:
         #top.append
-
+"""
 #main main it's so plain, blah blah whatever
 def main():
     #F is how many independent variables there are
@@ -94,25 +98,26 @@ def main():
 
     print "what?"
     #import pdb; pdb.set_trace()
-    squares = leastSquares(yData,tmp)
+    #squares = leastSquares(yData,tmp)
     print squares
     print "that was squares"
     #now I have the columns
     x = scipy.array(tmp)
-    print "in row format: "
-    print xDat
-    print "in column format: "
-    print x
-    print
+    #print "in row format: "
+    #print xDat
+    #print "in column format: "
+    #print x
+    #print
 
-    print "the answers look like this!"
-    print yDat
+    #print "the answers look like this!"
+    #print yDat
 
     #I need a function with F+1 number of parameters.
     #fuck this I'm tired here's the mess I'm thinking
 
     #import pdb; pdb.set_trace()
-    
+    """
+DEPRECIATED STUFF USED FOR TESTING
     def retFunc(f):
         return {
                 1 : lambda t, a, b: fitFunc2(t, a, b),
@@ -139,7 +144,8 @@ def main():
 
     fitParams, fitCovariances = curve_fit(fitFunc, x, yDat)
     #fitFunc2
-
+"""
+#There's probably a faster way to do this but I don't care right at this moment. Go team!
     guess = []
     for i in range(F+1):
         guess.append(1)
@@ -155,7 +161,7 @@ def main():
         #print "new func: "
         #print fitFuncL(xVals, squares)
         #print testFunc(xVals, fitParams[0], fitParams[1], fitParams[2])
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         print fitFunc3(xVals, fitPars)
 
 
