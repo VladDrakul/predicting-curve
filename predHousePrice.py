@@ -20,10 +20,9 @@ def fitFuncL(t, l):
 #same fitfunction but with variable amount of parameters. On second thought, this is just like a list except not really
 def fitFunc2(t, *args):
     leng = len(args)
-    total = args[-1]
-    leng = leng-1
-    for argh in args[:-1]:
-        total += t[leng-1] * argh
+    total = args[0]
+    for i in range(1,leng-1):
+        total += t[i-1] * args[i]
 
     return total
         
@@ -139,7 +138,7 @@ def main():
     #computer do it for me somehow please oh god please oh please oh please
     #takes in a function to model the data (linear, parabolic? etc.), takes in independent variables, and takes in dependent variables. 
 
-    #fitParams, fitCovariances = curve_fit(testFunc, x, yDat)
+    fitParams, fitCovariances = curve_fit(fitFunc, x, yDat)
     #fitFunc2
 
     guess = []
@@ -158,7 +157,7 @@ def main():
         #print fitFuncL(xVals, squares)
         #print testFunc(xVals, fitParams[0], fitParams[1], fitParams[2])
         import pdb; pdb.set_trace()
-        print fitFunc3(xVals, fitPars)
+        print fitFunc2(xVals, fitPars)
 
 
 
